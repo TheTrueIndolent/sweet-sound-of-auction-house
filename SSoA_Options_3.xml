@@ -1,0 +1,62 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+	<Frame name="ssoaOptions3" parent="UIParent" inherits="ssoaOptionsPanel">
+		<Frames>
+<!-- Options Box 1 Text's Time Visible and opacity of the background SSoA frame-->
+			<Frame name="$parentBox1" inherits="ssoaOptionsBox">
+				<Anchors>
+					<Anchor point="TOP" relativeKey="$parent.TopTxt" relativePoint="BOTTOM" x ="0" y="-8"/>
+				</Anchors>
+				<Size x="360" y="136"/>
+				<Frames>
+<!-- Slider 1 Text's Time Visible of SSoA frame -->	
+					<Frame name="$parentSlider1" inherits="ssoaSlider">
+						<Anchors>
+							<Anchor point="TOP" relativePoint="TOP" x="0" y="-32"/>
+						</Anchors>
+					</Frame>
+<!-- Slider 2 Opacity of Background of SSoA frame -->	
+					<Frame name="$parentSlider2" inherits="ssoaSlider">
+						<Anchors>
+							<Anchor point="BOTTOM" relativePoint="BOTTOM" x="0" y="12"/>
+						</Anchors>
+					</Frame>
+				</Frames>
+			</Frame>
+<!-- Options Box 2 Font's Size and SSoA frame's Content -->
+			<Frame name="$parentBox2" inherits="ssoaOptionsBox">
+				<Size x="360" y="112"/>
+				<Frames>
+<!-- Check Button 1 Loot -->
+					<CheckButton name="$parentCheckButton1" inherits="ssoaCheckButton">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="8" y="-28"/>
+						</Anchors>
+					</CheckButton>
+<!-- Check Button 2 Money -->
+					<CheckButton name="$parentCheckButton2" inherits="ssoaCheckButton">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parentCheckButton1" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+						</Anchors>
+					</CheckButton>
+<!-- Check Button 3 Currency -->
+					<CheckButton name="$parentCheckButton3" inherits="ssoaCheckButton">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parentCheckButton2" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+						</Anchors>
+					</CheckButton>
+<!-- Pop Out Button 1 font size -->
+					<Button name="$parentPopOut1" inherits="ssoaPopOut">
+						<Anchors>
+							<Anchor point="LEFT" relativeTo="$parentCheckButton2" relativePoint="RIGHT" x="144" y="0"/>
+						</Anchors>
+						<Frames>
+							<Button name="$parentChoice1" inherits="ssoaPopOutButton"/>
+							<Button name="$parentChoice2" inherits="ssoaPopOutButton"/>
+						</Frames>
+					</Button>
+				</Frames>
+			</Frame>
+		</Frames>
+	</Frame>
+	<Script file="SSoA_Options_3.lua"/>
+</Ui>

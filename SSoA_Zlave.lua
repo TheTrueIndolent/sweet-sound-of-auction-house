@@ -1,0 +1,175 @@
+-- Loading First Time the Variables --
+local function FirstTimeSavedVariables()
+	if SSoArNumber == nil then SSoArNumber = 0 end
+	if SSoArProfile == nil then SSoArProfile ={} end
+	if SSoArCounterLoading == nil or SSoArCounterLoading ~= nil then SSoArCounterLoading = 0 end
+	if SSoArCounterDeleting == nil or SSoArCounterDeleting ~= nil then SSoArCounterDeleting = 0 end
+	if SSoAsell == nil then
+		SSoAsell = {
+			Sound = "Cash Register Machine",
+			Emote = "Cheer",
+			ChatFrame = 1,
+			SsoaFrame = 0,
+		}
+	end
+	if SSoAexpire == nil then
+		SSoAexpire = {
+			Sound = "Zong",
+			Emote = "Violin",
+			ChatFrame = 1,
+			SsoaFrame = 0,
+		}
+	end
+	if SSoAframeOpt == nil then
+		SSoAframeOpt = {
+			Show = 0,
+			X = 580,
+			Y = 410,
+			Width = 304,
+			Height = 80,
+			Loot = 0,
+		}
+	end
+	if SSoAframeOpt["Fonts"] == nil then SSoAframeOpt["Fonts"] = 16 end
+	if SSoAframeOpt["Duration"] == nil then SSoAframeOpt["Duration"] = 180 end
+	if SSoAframeOpt["BackgroundOpacity"] == nil then SSoAframeOpt["BackgroundOpacity"] = 1 end
+	if SSoAframeOpt["Money"] == nil then SSoAframeOpt["Money"] = 0 end
+	if SSoAframeOpt["Currency"] == nil then SSoAframeOpt["Currency"] = 0 end
+end
+-- Scrolling Functions --
+local function ScrollFrame_OnMouseWheel(self, delta)
+	if delta == 1 then self:ScrollUp() elseif delta == -1 then self:ScrollDown() end
+end
+-- Taking care of the SSoA frame --
+ssoaTextyFrame:SetScript("OnMouseWheel", ScrollFrame_OnMouseWheel)
+ssoaTextyFrame:RegisterEvent("PLAYER_LOGIN")
+ssoaTextyFrame:RegisterEvent("AUCTION_HOUSE_SHOW_FORMATTED_NOTIFICATION")
+ssoaTextyFrame:RegisterEvent("CHAT_MSG_MONEY")
+ssoaTextyFrame:RegisterEvent("CHAT_MSG_LOOT")
+ssoaTextyFrame:RegisterEvent("CHAT_MSG_CURRENCY")
+ssoaTextyFrame:SetJustifyH("LEFT")
+ssoaTextyFrame:SetInsertMode(2)
+ssoaTextyFrame:SetHyperlinksEnabled(true)
+ssoaTextyFrame:SetScript("OnHyperlinkClick", ChatFrame_OnHyperlinkShow)
+-- function for the visibility of SSoA frame --
+function ssoaFrameVisibility()
+	if SSoAframeOpt["Show"] == 1 then
+		ssoaMoverFrame:ClearAllPoints()
+		ssoaMoverFrame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", SSoAframeOpt["X"], SSoAframeOpt["Y"])
+		ssoaMoverFrame:SetWidth(SSoAframeOpt["Width"])
+		ssoaMoverFrame:SetHeight(SSoAframeOpt["Height"])
+		ssoaTextyFrame:Show()
+	elseif SSoAframeOpt["Show"] == 0 then
+		ssoaMoverFrame:ClearAllPoints()
+		ssoaMoverFrame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", SSoAframeOpt["X"], SSoAframeOpt["Y"])
+		ssoaMoverFrame:SetWidth(SSoAframeOpt["Width"])
+		ssoaMoverFrame:SetHeight(SSoAframeOpt["Height"])
+		ssoaTextyFrame:Hide()
+	end
+end
+-- function for the fonts of SSoA frame --
+function ssoaFrameFonts()
+	if SSoAframeOpt["Fonts"] == 12 then
+		ssoaTextyFrame:SetFontObject("ssoaNumberFontOutline12")
+		ssoaTextyFrame:SetTextColor(ssoaMainColor:GetRGB())
+	elseif SSoAframeOpt["Fonts"] == 14 then
+		ssoaTextyFrame:SetFontObject("NumberFont_Outline_Med")
+		ssoaTextyFrame:SetTextColor(ssoaMainColor:GetRGB())
+	elseif SSoAframeOpt["Fonts"] == 16 then
+		ssoaTextyFrame:SetFontObject("NumberFont_Outline_Large")
+		ssoaTextyFrame:SetTextColor(ssoaMainColor:GetRGB())
+	end
+end
+-- function for the duretion of SSoA frame --
+function ssoaFrameDuration()
+	ssoaTextyFrame:SetTimeVisible(SSoAframeOpt["Duration"])
+	ssoaTextyFrame.BGtexture1:SetAlpha(SSoAframeOpt["BackgroundOpacity"])
+	ssoaTextyFrame.TopRightTexture:SetAlpha(SSoAframeOpt["BackgroundOpacity"])
+	ssoaTextyFrame.TopLeftTexture:SetAlpha(SSoAframeOpt["BackgroundOpacity"])
+	ssoaTextyFrame.BGtexture2:SetAlpha(SSoAframeOpt["BackgroundOpacity"])
+	ssoaTextyFrame.Title:SetAlpha(SSoAframeOpt["BackgroundOpacity"])
+end
+-- Function for the Selling Sounds --
+local function SellingSounds()
+	if SSoAsell["Sound"] == "Auction House's Sound" then
+		PlaySound(5275, "Master")
+	elseif SSoAsell["Sound"] == "Cash Register Machine" then
+		PlaySoundFile("Interface\\AddOns\\SSoA\\Sounds\\CashRegisterSound.mp3", "Master")
+	end
+end
+-- Function for the Selling Emotes --
+local function SellingEmote()
+	if SSoAsell["Emote"] == "Cheer" then
+		DoEmote("CHEER","none")
+	elseif SSoAsell["Emote"] == "Congratulate" then
+		DoEmote("Congratulate","none")
+	elseif SSoAsell["Emote"] == "Dance" then
+		DoEmote("Dance","none")
+	end
+end
+-- Function for Expiring Sounds --
+local function ExpiringSounds()
+	if SSoAexpire["Sound"] == "Zong" then
+		PlaySoundFile("Interface\\AddOns\\SSoA\\Sounds\\Zong.mp3", "Master")
+	elseif SSoAexpire["Sound"] == "Bells" then
+		PlaySoundFile("Interface\\AddOns\\SSoA\\Sounds\\Bells.mp3", "Master")
+	end
+end
+-- Function for Expiring Emotes --
+local function ExpiringEmote()
+	if SSoAexpire["Emote"] == "Mourn" then
+		DoEmote("MOURN","none")
+	elseif SSoAexpire["Emote"] == "Angry" then
+		DoEmote("Angry","none")
+	elseif SSoAexpire["Emote"] == "Violin" then
+		DoEmote("Violin","none")
+	end
+end
+-- Events time --
+local function EventsTime(self, event, arg1, arg2, arg3)
+	if event == "PLAYER_LOGIN" then
+		FirstTimeSavedVariables()
+		self:ClearAllPoints()
+		self:SetPoint("TOPLEFT", ssoaMoverFrame, "TOPLEFT", 0, 0)
+		self:SetPoint("BOTTOMRIGHT", ssoaMoverFrame, "BOTTOMRIGHT", 0, 0)
+		ssoaFrameVisibility()
+		ssoaFrameFonts()
+		ssoaFrameDuration()
+	elseif event == "CHAT_MSG_MONEY" then
+		if SSoAframeOpt["Money"] == 1 then
+			ssoaTime = GameTime_GetTime(false)
+			self:AddMessage("[|cnWHITE_FONT_COLOR:"..ssoaTime.."|r] "..arg1)
+		end
+	elseif event == "CHAT_MSG_LOOT" then
+		if SSoAframeOpt["Loot"] == 1 then
+			ssoaTime = GameTime_GetTime(false)
+			self:AddMessage("[|cnWHITE_FONT_COLOR:"..ssoaTime.."|r] "..arg1)
+		end
+	elseif event == "CHAT_MSG_CURRENCY" then
+		if SSoAframeOpt["Currency"] == 1 then
+			ssoaTime = GameTime_GetTime(false)
+			self:AddMessage("[|cnWHITE_FONT_COLOR:"..ssoaTime.."|r] "..arg1)
+		end
+	elseif event == "AUCTION_HOUSE_SHOW_FORMATTED_NOTIFICATION" and arg1 == 4 then
+		ssoaTime = GameTime_GetTime(false)
+		if SSoAsell["ChatFrame"] == 1 then
+			DEFAULT_CHAT_FRAME:AddMessage("["..ssoaTime.."] Your Auction for "..ssoaHighColor:WrapTextInColorCode(arg2).." has been |cnDARKYELLOW_FONT_COLOR:sold|r")
+		end
+		if SSoAsell["SsoaFrame"] == 1 then
+			self:AddMessage("[|cnWHITE_FONT_COLOR:"..ssoaTime.."|r] Your Auction for "..ssoaHighColor:WrapTextInColorCode(arg2).." has been |cnDARKYELLOW_FONT_COLOR:sold|r")
+		end
+		SellingSounds()
+		SellingEmote()
+	elseif event == "AUCTION_HOUSE_SHOW_FORMATTED_NOTIFICATION" and arg1 == 5 then
+		ssoaTime = GameTime_GetTime(false)
+		if SSoAexpire["ChatFrame"] == 1 then
+			DEFAULT_CHAT_FRAME:AddMessage("["..ssoaTime.."|r] Your Auction for "..ssoaHighColor:WrapTextInColorCode(arg2).." has been |cFF991A4Dexpired|r")
+		end
+		if SSoAexpire["SsoaFrame"] == 1 then
+			self:AddMessage("[|cnWHITE_FONT_COLOR:"..ssoaTime.."|r] Your Auction for "..ssoaHighColor:WrapTextInColorCode(arg2).." has been |cFF991A4Dexpired|r")
+		end
+		ExpiringSounds()
+		ExpiringEmote()
+	end
+end
+ssoaTextyFrame:SetScript("OnEvent", EventsTime)

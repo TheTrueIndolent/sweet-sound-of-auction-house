@@ -1,5 +1,5 @@
 ## Title: Sweet Sound of Auction House
-## Addon - Script
+## Category: Addon - Script
 ## Game: World of Warcraft
 Sweet Sound of Auction House (SSoA) is an add on that enchants notifications from the Auction House.
 

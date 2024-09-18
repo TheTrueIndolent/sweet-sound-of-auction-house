@@ -61,7 +61,7 @@ end)
 local function EventsTime(self, event, arg1, arg2, arg3, arg4)
 	if event == "PLAYER_LOGIN" then
 		local category = Settings.RegisterCanvasLayoutCategory(self, "SSoA")
-		category:SetName(C_AddOns.GetAddOnMetadata("SSoA", "Title"))
+		category:SetName("|A:"..C_AddOns.GetAddOnMetadata("SSoA", "IconAtlas")..":16:16:0:-6|a "..C_AddOns.GetAddOnMetadata("SSoA", "Title"))
 		Settings.RegisterAddOnCategory(category)
 	end
 end

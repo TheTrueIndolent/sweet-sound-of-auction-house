@@ -8,7 +8,7 @@
 ## DefaultState: enabled
 ## SavedVariables:  SSoArNumber SSoArProfile SSoArCounterLoading SSoArCounterDeleting
 ## SavedVariablesPerCharacter: SSoAsell SSoAexpire SSoAframeOpt
-## Version: 1.36
+## Version: 1.37
 ## Author: The_Indolent
 ## X-Website: https://panosanastasiou.rocks/
 

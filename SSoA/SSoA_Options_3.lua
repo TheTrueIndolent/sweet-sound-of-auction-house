@@ -145,17 +145,21 @@ ssoaOptions3Box2PopOut1:SetScript("OnLeave", ssoaLeavingMenus)
 -- drop down --
 ssoaClickPopOut(ssoaOptions3Box2PopOut1, ssoaOptions3Box2PopOut1Choice0)
 -- naming --
-ssoaOptions3Box2PopOut1Choice0.Text:SetText("12")
-ssoaOptions3Box2PopOut1Choice1.Text:SetText("14")
-ssoaOptions3Box2PopOut1Choice2.Text:SetText("16")
-ssoaOptions3Box2PopOut1Choice3.Text:SetText("18")
+ssoaOptions3Box2PopOut1Choice0.Text:SetText("11")
+ssoaOptions3Box2PopOut1Choice1.Text:SetText("12")
+ssoaOptions3Box2PopOut1Choice2.Text:SetText("13")
+ssoaOptions3Box2PopOut1Choice3.Text:SetText("14")
+ssoaOptions3Box2PopOut1Choice4.Text:SetText("15")
+ssoaOptions3Box2PopOut1Choice5.Text:SetText("16")
+ssoaOptions3Box2PopOut1Choice6.Text:SetText("17")
+ssoaOptions3Box2PopOut1Choice7.Text:SetText("18")
 -- parent & sort --
-for i = 1, 3, 1 do
+for i = 1, 7, 1 do
 	_G["ssoaOptions3Box2PopOut1Choice"..i]:SetParent(ssoaOptions3Box2PopOut1Choice0)
 	_G["ssoaOptions3Box2PopOut1Choice"..i]:SetPoint("TOP", _G["ssoaOptions3Box2PopOut1Choice"..i-1], "BOTTOM", 0, 0)
 end
 -- click --
-for i = 0, 3, 1 do
+for i = 0, 7, 1 do
 	_G["ssoaOptions3Box2PopOut1Choice"..i]:HookScript("OnClick", function(self, button, down)
 		if button == "LeftButton" and down == false then
 			SSoAframeOpt["Fonts"] = tonumber(self:GetText())

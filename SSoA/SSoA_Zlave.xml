@@ -84,7 +84,7 @@
 			</Layer>
 			<Layer level="OVERLAY">
 <!-- Title -->
-				<FontString parentKey="Title" font="ssoa_FunkyFonts_18" justifyV="MIDDLE" justifyH="CENTER" outline="NORMAL" >
+				<FontString parentKey="Title" font="ssoa_FunkyShadowFonts_18" justifyV="MIDDLE" justifyH="CENTER" outline="NORMAL" >
 					<Anchors>
 						<Anchor point="BOTTOM" relativePoint="TOP" x="0" y="0"/>
 					</Anchors>

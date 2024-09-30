@@ -81,9 +81,6 @@
 							<Button name="$parentChoice2" inherits="ssoaPopOutButton"/>
 							<Button name="$parentChoice3" inherits="ssoaPopOutButton"/>
 							<Button name="$parentChoice4" inherits="ssoaPopOutButton"/>
-							<Button name="$parentChoice5" inherits="ssoaPopOutButton"/>
-							<Button name="$parentChoice6" inherits="ssoaPopOutButton"/>
-							<Button name="$parentChoice7" inherits="ssoaPopOutButton"/>
 						</Frames>
 					</Button>
 				</Frames>

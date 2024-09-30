@@ -69,19 +69,25 @@ function ssoaFrameVisibility()
 end
 -- function for the fonts of SSoA frame --
 function ssoaFrameFonts()
-	if SSoAframeOpt["Fonts"] == 12 then
-		ssoaTextyFrame:SetFontObject("ssoaNumberFontOutline12")
-		ssoaTextyFrame:SetTextColor(ssoaMainColor:GetRGB())
+	--ssoaTextyFrame:SetTextColor(ssoaMainColor:GetRGB())
+	if SSoAframeOpt["Fonts"] == 11 then
+		ssoaTextyFrame:SetFontObject("ssoa_NormalShadowFonts_11")
+	elseif SSoAframeOpt["Fonts"] == 12 then
+		ssoaTextyFrame:SetFontObject("ssoa_NormalShadowFonts_12")
+	elseif SSoAframeOpt["Fonts"] == 13 then
+		ssoaTextyFrame:SetFontObject("ssoa_NormalShadowFonts_13")
 	elseif SSoAframeOpt["Fonts"] == 14 then
-		ssoaTextyFrame:SetFontObject("NumberFont_Outline_Med")
-		ssoaTextyFrame:SetTextColor(ssoaMainColor:GetRGB())
+		ssoaTextyFrame:SetFontObject("ssoa_NormalShadowFonts_14")
+	elseif SSoAframeOpt["Fonts"] == 15 then
+		ssoaTextyFrame:SetFontObject("ssoa_NormalShadowFonts_15")
 	elseif SSoAframeOpt["Fonts"] == 16 then
-		ssoaTextyFrame:SetFontObject("NumberFont_Outline_Large")
-		ssoaTextyFrame:SetTextColor(ssoaMainColor:GetRGB())
+		ssoaTextyFrame:SetFontObject("ssoa_NormalShadowFonts_16")
+	elseif SSoAframeOpt["Fonts"] == 17 then
+		ssoaTextyFrame:SetFontObject("ssoa_NormalShadowFonts_17")
 	elseif SSoAframeOpt["Fonts"] == 18 then
-		ssoaTextyFrame:SetFontObject("ssoaNumberFontOutline18")
-		ssoaTextyFrame:SetTextColor(ssoaMainColor:GetRGB())
+		ssoaTextyFrame:SetFontObject("ssoa_NormalShadowFonts_18")
 	end
+	ssoaTextyFrame:SetTextColor(ssoaMainColor:GetRGB())
 end
 -- function for the duretion of SSoA frame --
 function ssoaFrameDuration()
@@ -103,11 +109,13 @@ end
 -- Function for the Selling Emotes --
 local function SellingEmote()
 	if SSoAsell["Emote"] == "Cheer" then
-		DoEmote("CHEER","none")
+		DoEmote("CHEER", "none")
 	elseif SSoAsell["Emote"] == "Congratulate" then
-		DoEmote("Congratulate","none")
+		DoEmote("Congratulate", "none")
 	elseif SSoAsell["Emote"] == "Dance" then
-		DoEmote("Dance","none")
+		DoEmote("Dance", "none")
+	elseif SSoAsell["Emote"] == "WHOA" then
+		DoEmote("WHOA", "none")
 	end
 end
 -- Function for Expiring Sounds --
@@ -121,11 +129,13 @@ end
 -- Function for Expiring Emotes --
 local function ExpiringEmote()
 	if SSoAexpire["Emote"] == "Mourn" then
-		DoEmote("MOURN","none")
+		DoEmote("MOURN", "none")
 	elseif SSoAexpire["Emote"] == "Angry" then
-		DoEmote("Angry","none")
+		DoEmote("Angry", "none")
 	elseif SSoAexpire["Emote"] == "Violin" then
-		DoEmote("Violin","none")
+		DoEmote("Violin", "none")
+	elseif SSoAexpire["Emote"] == "OOPS" then
+		DoEmote("OOPS", "none")
 	end
 end
 -- Events time --

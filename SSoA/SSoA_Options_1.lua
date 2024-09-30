@@ -147,8 +147,9 @@ ssoaOptions1Box1PopOut3Choice0.Text:SetText("None")
 ssoaOptions1Box1PopOut3Choice1.Text:SetText("Cheer")
 ssoaOptions1Box1PopOut3Choice2.Text:SetText("Congratulate")
 ssoaOptions1Box1PopOut3Choice3.Text:SetText("Dance")
+ssoaOptions1Box1PopOut3Choice4.Text:SetText("WHOA")
 -- parent & sort --
-for i = 1, 3, 1 do
+for i = 1, 4, 1 do
 	_G["ssoaOptions1Box1PopOut3Choice"..i]:SetParent(ssoaOptions1Box1PopOut3Choice0)
 	_G["ssoaOptions1Box1PopOut3Choice"..i]:SetPoint("TOP", _G["ssoaOptions1Box1PopOut3Choice"..i-1], "BOTTOM", 0, 0)
 end
@@ -178,6 +179,13 @@ ssoaOptions1Box1PopOut3Choice3:HookScript("OnClick", function(self, button, down
 	if button == "LeftButton" and down == false then
 		SamePopOutPlus(ssoaOptions1Box1PopOut3, ssoaOptions1Box1PopOut3Choice0, SSoAsell["Emote"], self)
 		DoEmote("Dance","none")
+	end
+end)
+-- choice 4 WHOA --
+ssoaOptions1Box1PopOut3Choice4:HookScript("OnClick", function(self, button, down)
+	if button == "LeftButton" and down == false then
+		SamePopOutPlus(ssoaOptions1Box1PopOut3, ssoaOptions1Box1PopOut3Choice0, SSoAsell["Emote"], self)
+		DoEmote("WHOA","none")
 	end
 end)
 -- Box 2, pop out 1, Expired Chat --
@@ -286,8 +294,9 @@ ssoaOptions1Box2PopOut3Choice0.Text:SetText("None")
 ssoaOptions1Box2PopOut3Choice1.Text:SetText("Mourn")
 ssoaOptions1Box2PopOut3Choice2.Text:SetText("Angry")
 ssoaOptions1Box2PopOut3Choice3.Text:SetText("Violin")
+ssoaOptions1Box2PopOut3Choice4.Text:SetText("OOPS")
 -- paret & sort --
-for i = 1, 3, 1 do
+for i = 1, 4, 1 do
 	_G["ssoaOptions1Box2PopOut3Choice"..i]:SetParent(ssoaOptions1Box2PopOut3Choice0)
 	_G["ssoaOptions1Box2PopOut3Choice"..i]:SetPoint("TOP", _G["ssoaOptions1Box2PopOut3Choice"..i-1], "BOTTOM", 0, 0)
 end
@@ -316,6 +325,13 @@ ssoaOptions1Box2PopOut3Choice3:HookScript("OnClick", function(self, button, down
 	if button == "LeftButton" and down == false then
 		SamePopOutPlus(ssoaOptions1Box2PopOut3, ssoaOptions1Box2PopOut3Choice0, SSoAexpire["Emote"], self)
 		DoEmote("Violin","none")
+	end
+end)
+-- choice 4 OOPS --
+ssoaOptions1Box2PopOut3Choice4:HookScript("OnClick", function(self, button, down)
+	if button == "LeftButton" and down == false then
+		SamePopOutPlus(ssoaOptions1Box2PopOut3, ssoaOptions1Box2PopOut3Choice0, SSoAexpire["Emote"], self)
+		DoEmote("OOPS","none")
 	end
 end)
 -- Show the panel --

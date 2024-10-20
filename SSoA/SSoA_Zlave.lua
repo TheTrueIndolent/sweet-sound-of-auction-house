@@ -147,6 +147,7 @@ local function ScrollFrame_OnMouseWheel(self, delta)
 end
 -- Taking care of the SSoA frame --
 ssoaTextyFrame:SetScript("OnMouseWheel", ScrollFrame_OnMouseWheel)
+ssoaTextyFrame:HookScript("OnHyperlinkClick", ChatFrame_OnHyperlinkShow)
 ssoaTextyFrame:RegisterEvent("PLAYER_LOGIN")
 ssoaTextyFrame:RegisterEvent("AUCTION_HOUSE_SHOW_FORMATTED_NOTIFICATION")
 ssoaTextyFrame:RegisterEvent("CHAT_MSG_MONEY")
@@ -154,9 +155,6 @@ ssoaTextyFrame:RegisterEvent("CHAT_MSG_LOOT")
 ssoaTextyFrame:RegisterEvent("CHAT_MSG_CURRENCY")
 ssoaTextyFrame:SetJustifyH("LEFT")
 ssoaTextyFrame:SetInsertMode(2)
-ssoaTextyFrame:SetHyperlinksEnabled(true)
-ssoaTextyFrame:SetScript("OnHyperlinkClick", ChatFrame_OnHyperlinkShow)
-
 -- Function for the Selling Sounds --
 local function SellingSounds()
 	if SSoAsell["Sound"] == "Auction House's Sound" then

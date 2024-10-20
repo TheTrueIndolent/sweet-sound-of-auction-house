@@ -342,7 +342,7 @@
 		</Member>
 	</FontFamily>
 <!-- The SSoA Frame -->
-	<ScrollingMessageFrame name="ssoaTextyFrame" parent="UIParent" movable="true" hidden="true" frameStrata="MEDIUM" clampedToScreen="true" >
+	<ScrollingMessageFrame name="ssoaTextyFrame" parent="ChatFrame1" propagateHyperlinksToParent="true" movable="true" hidden="true" frameStrata="MEDIUM" clampedToScreen="true" >
 		<Layers>
 			<Layer level="BACKGROUND" textureSubLevel="-1">
 				<Texture>

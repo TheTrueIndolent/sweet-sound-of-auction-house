@@ -1,11 +1,11 @@
-## Interface: 110002
+## Interface: 110005
 ## Title: Sweet |cff00BFFFSound|r of |cff00BFFFAuction House|r!
 ## Notes: |cffF0E68CAah! the Sweet |cff00BFFFSound|r of |cff00BFFFAuction|r House|r!
 ## IconAtlas: Relic-Water-TraitBG
 ## DefaultState: enabled
 ## SavedVariables:  SSoArNumber SSoArProfile SSoArCounterLoading SSoArCounterDeleting
 ## SavedVariablesPerCharacter: SSoAsell SSoAexpire SSoAframeOpt
-## Version: 1.41
+## Version: 1.42
 ## Author: The_Indolent
 ## X-Website: https://panosanastasiou.rocks/
 

@@ -245,6 +245,22 @@ local function StopMoving(self)
 end
 ssoaTextyFrame:SetScript("OnDragStart", ssoaTextyFrame.StartMoving)
 ssoaTextyFrame:SetScript("OnDragStop", function(self) StopMoving(self) end)
+-- drop down --
+ssoaClickPopOut(ssoaOptions2Box1PopOut1, ssoaOptions2Box1PopOut1Choice0)
+-- leave --
+ssoaOptions2Box1PopOut1:SetScript("OnLeave", ssoaLeavingMenus)
+-- slider 1 on leave --
+ssoaOptions2Box3Slider1.Slider:SetScript("OnLeave", ssoaLeavingMenus)
+-- slider 2 on leave --
+ssoaOptions2Box3Slider2.Slider:SetScript("OnLeave", ssoaLeavingMenus)
+-- slider 1 on leave --
+ssoaOptions2Box4Slider1.Slider:SetScript("OnLeave", ssoaLeavingMenus)
+-- slider 2 on leave --
+ssoaOptions2Box4Slider2.Slider:SetScript("OnLeave", ssoaLeavingMenus)
+-- drop down --
+ssoaClickPopOut(ssoaOptions2Box5PopOut1, ssoaOptions2Box5PopOut1Choice0)
+-- leave --
+ssoaOptions2Box5PopOut1:SetScript("OnLeave", ssoaLeavingMenus)
 -- Show the panel --
 ssoaOptions2:HookScript("OnShow", function(self)
 	CheckSavedVariables()

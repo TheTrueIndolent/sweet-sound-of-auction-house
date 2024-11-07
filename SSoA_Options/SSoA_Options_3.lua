@@ -131,6 +131,12 @@ ssoaOptions3Box3PopOut1Choice0:SetScript("OnClick", function(self, button, down)
 end)
 -- naming --
 ssoaOptions3Box3PopOut1Choice0.Text:SetText("Nothing")
+-- leave --
+ssoaOptions3Box1EditBox1.WritingLine:HookScript("OnLeave", ssoaLeavingMenus)
+ssoaOptions3Box2PopOut1:SetScript("OnLeave", ssoaLeavingMenus)
+ssoaClickPopOut(ssoaOptions3Box2PopOut1, ssoaOptions3Box2PopOut1Choice0)
+ssoaOptions3Box3PopOut1:SetScript("OnLeave", ssoaLeavingMenus)
+ssoaClickPopOut(ssoaOptions3Box3PopOut1, ssoaOptions3Box3PopOut1Choice0)
 -- Showing the panel --
 ssoaOptions3:HookScript("OnShow", function(self)
 	FindingKeys()

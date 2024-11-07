@@ -161,6 +161,8 @@ local function SellingSounds()
 		PlaySound(5275, "Master")
 	elseif SSoAsell["Sound"] == "Cash Register Machine" then
 		PlaySoundFile("Interface\\AddOns\\SSoA\\Sounds\\CashRegisterSound.mp3", "Master")
+	elseif SSoAsell["Sound"] == "Coins Sound" then
+		PlaySound(120, "Master")
 	end
 end
 -- Function for the Selling Emotes --
@@ -181,6 +183,8 @@ local function ExpiringSounds()
 		PlaySoundFile("Interface\\AddOns\\SSoA\\Sounds\\Zong.mp3", "Master")
 	elseif SSoAexpire["Sound"] == "Bells" then
 		PlaySoundFile("Interface\\AddOns\\SSoA\\Sounds\\Bells.mp3", "Master")
+	elseif SSoAexpire["Sound"] == "Mission Fail" then
+		PlaySound(43503, "Master")
 	end
 end
 -- Function for Expiring Emotes --

@@ -27,6 +27,7 @@
 						<Frames>
 							<Button name="$parentChoice1" inherits="ssoaPopOutButton"/>
 							<Button name="$parentChoice2" inherits="ssoaPopOutButton"/>
+							<Button name="$parentChoice3" inherits="ssoaPopOutButton"/>
 						</Frames>
 					</Button>
 <!-- Pop Out Button 3 eMote Notification -->
@@ -69,6 +70,7 @@
 						<Frames>
 							<Button name="$parentChoice1" inherits="ssoaPopOutButton"/>
 							<Button name="$parentChoice2" inherits="ssoaPopOutButton"/>
+							<Button name="$parentChoice3" inherits="ssoaPopOutButton"/>
 						</Frames>
 					</Button>
 <!-- Pop Out Button 3 eMote Notification -->

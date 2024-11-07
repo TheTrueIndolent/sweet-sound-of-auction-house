@@ -5,7 +5,7 @@
 ## DefaultState: enabled
 ## LoadOnDemand: 1
 ## Dependencies: SSoA
-## Version: 1.42
+## Version: 1.43
 ## Author: The_Indolent
 ## X-Website: https://panosanastasiou.rocks/
 

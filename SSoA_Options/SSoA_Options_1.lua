@@ -70,8 +70,9 @@ end
 ssoaOptions1Box1PopOut2Choice0.Text:SetText("None")
 ssoaOptions1Box1PopOut2Choice1.Text:SetText("Auction House's Sound")
 ssoaOptions1Box1PopOut2Choice2.Text:SetText("Cash Register Machine")
+ssoaOptions1Box1PopOut2Choice3.Text:SetText("Coins Sound")
 -- parent & sort --
-for i = 1, 2, 1 do
+for i = 1, 3, 1 do
 	_G["ssoaOptions1Box1PopOut2Choice"..i]:SetParent(ssoaOptions1Box1PopOut2Choice0)
 	_G["ssoaOptions1Box1PopOut2Choice"..i]:SetPoint("TOP", _G["ssoaOptions1Box1PopOut2Choice"..i-1], "BOTTOM", 0, 0)
 end
@@ -81,7 +82,7 @@ ssoaOptions1Box1PopOut2:SetScript("OnEnter", function(self)
 	GameTooltip:SetText("|A:"..C_AddOns.GetAddOnMetadata("SSoA", "IconAtlas")..":16:16|a "..ssoaMainColor:WrapTextInColorCode(C_AddOns.GetAddOnMetadata("SSoA", "Title")).."|nWhich sound would you like to hear,|nwhen you sell an item at AH?") 
 end)
 -- clicking --
-for i = 0, 2, 1 do
+for i = 0, 3, 1 do
 	_G["ssoaOptions1Box1PopOut2Choice"..i]:HookScript("OnClick", function(self, button, down)
 		ssoaOptions1Box1PopOut2.Text:SetText(self.Text:GetText())
 		SSoAsell["Sound"] = self.Text:GetText()
@@ -93,6 +94,8 @@ for i = 0, 2, 1 do
 			PlaySound(5275, "Master")
 		elseif SSoAsell["Sound"] == "Cash Register Machine" then
 			PlaySoundFile("Interface\\AddOns\\SSoA\\Sounds\\CashRegisterSound.mp3", "Master")
+		elseif SSoAsell["Sound"] == "Coins Sound" then
+			PlaySound(120, "Master")
 		end
 	end)
 end
@@ -176,8 +179,9 @@ end
 ssoaOptions1Box2PopOut2Choice0.Text:SetText("None")
 ssoaOptions1Box2PopOut2Choice1.Text:SetText("Zong")
 ssoaOptions1Box2PopOut2Choice2.Text:SetText("Bells")
+ssoaOptions1Box2PopOut2Choice3.Text:SetText("Mission Fail")
 -- parent & sort --
-for i = 1, 2, 1 do
+for i = 1, 3, 1 do
 	_G["ssoaOptions1Box2PopOut2Choice"..i]:SetParent(ssoaOptions1Box2PopOut2Choice0)
 	_G["ssoaOptions1Box2PopOut2Choice"..i]:SetPoint("TOP", _G["ssoaOptions1Box2PopOut2Choice"..i-1], "BOTTOM", 0, 0)
 end
@@ -187,7 +191,7 @@ ssoaOptions1Box2PopOut2:SetScript("OnEnter", function(self)
 	GameTooltip:SetText(ssoaMainColor:WrapTextInColorCode("|A:"..C_AddOns.GetAddOnMetadata("SSoA", "IconAtlas")..":16:16|a "..C_AddOns.GetAddOnMetadata("SSoA", "Title")).."|nWhich sound would you like to hear,|nwhen an auction has been expired?") 
 end)
 -- click --
-for i = 0, 2, 1 do
+for i = 0, 3, 1 do
 	_G["ssoaOptions1Box2PopOut2Choice"..i]:HookScript("OnClick", function(self, button, down)
 		if button == "LeftButton" and down == false then
 			ssoaOptions1Box2PopOut2.Text:SetText(self.Text:GetText())
@@ -200,6 +204,8 @@ for i = 0, 2, 1 do
 				PlaySoundFile("Interface\\AddOns\\SSoA\\Sounds\\Zong.mp3", "Master")
 			elseif SSoAexpire["Sound"] == "Bells" then
 				PlaySoundFile("Interface\\AddOns\\SSoA\\Sounds\\Bells.mp3", "Master")
+			elseif SSoAexpire["Sound"] == "Mission Fail" then
+				PlaySound(43503, "Master")
 			end
 		end
 	end)
@@ -243,6 +249,31 @@ for i = 0, 4, 1 do
 		end
 	end)
 end
+-- drop down --
+ssoaClickPopOut(ssoaOptions1Box1PopOut1, ssoaOptions1Box1PopOut1Choice0)
+-- leave --
+ssoaOptions1Box1PopOut1:SetScript("OnLeave", ssoaLeavingMenus)
+-- drop down --
+ssoaClickPopOut(ssoaOptions1Box1PopOut2, ssoaOptions1Box1PopOut2Choice0)
+-- leave --
+ssoaOptions1Box1PopOut2:SetScript("OnLeave", ssoaLeavingMenus)
+-- drop down --
+ssoaClickPopOut(ssoaOptions1Box1PopOut3, ssoaOptions1Box1PopOut3Choice0)
+-- leave --
+ssoaOptions1Box1PopOut3:SetScript("OnLeave", ssoaLeavingMenus)
+-- drop down --
+ssoaClickPopOut(ssoaOptions1Box2PopOut1, ssoaOptions1Box2PopOut1Choice0)
+-- leave --
+ssoaOptions1Box2PopOut1:SetScript("OnLeave", ssoaLeavingMenus)
+-- drop down --
+ssoaClickPopOut(ssoaOptions1Box2PopOut2, ssoaOptions1Box2PopOut2Choice0)
+-- leave --
+ssoaOptions1Box2PopOut2:SetScript("OnLeave", ssoaLeavingMenus)
+-- drop down --
+ssoaClickPopOut(ssoaOptions1Box2PopOut3, ssoaOptions1Box2PopOut3Choice0)
+-- leave --
+ssoaOptions1Box2PopOut3:SetScript("OnLeave", ssoaLeavingMenus)
+
 -- Show the panel --
 ssoaOptions1:HookScript("OnShow", function(self)
 	CheckSavedVariables()

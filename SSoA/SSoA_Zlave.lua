@@ -147,7 +147,6 @@ local function ScrollFrame_OnMouseWheel(self, delta)
 end
 -- Taking care of the SSoA frame --
 ssoaTextyFrame:SetScript("OnMouseWheel", ScrollFrame_OnMouseWheel)
-ssoaTextyFrame:HookScript("OnHyperlinkClick", ChatFrame_OnHyperlinkShow)
 ssoaTextyFrame:RegisterEvent("PLAYER_LOGIN")
 ssoaTextyFrame:RegisterEvent("AUCTION_HOUSE_SHOW_FORMATTED_NOTIFICATION")
 ssoaTextyFrame:RegisterEvent("CHAT_MSG_MONEY")
@@ -245,3 +244,4 @@ local function EventsTime(self, event, arg1, arg2, arg3)
 	end
 end
 ssoaTextyFrame:SetScript("OnEvent", EventsTime)
+

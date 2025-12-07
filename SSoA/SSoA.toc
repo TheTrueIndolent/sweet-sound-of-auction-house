@@ -1,4 +1,4 @@
-## Interface: 110200
+## Interface: 110207
 ## Category: Auctions
 ## Category-deDE: Auktionen
 ## Category-esES: Subastas
@@ -16,9 +16,10 @@
 ## DefaultState: enabled
 ## SavedVariables:  SSoArNumber SSoArProfile SSoArCounterLoading SSoArCounterDeleting
 ## SavedVariablesPerCharacter: SSoAsell SSoAexpire SSoAframeOpt
-## Version: 1.46
+## Version: 1.47
 ## Author: The_Indolent
 ## X-Website: https://panosanastasiou.rocks/
 
 SSoA_Zlave.xml
+
 
